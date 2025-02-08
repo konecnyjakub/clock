@@ -1,4 +1,4 @@
-Version 1.1.0-dev
+Version 1.1.0
 - added LocalClock
 - deprecated passing time zone to SystemClock, use LocalClock instead
 - added FrozenClocksCollection
