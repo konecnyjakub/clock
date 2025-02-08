@@ -15,7 +15,7 @@ Usage
 
 ### System clock
 
-This clock returns current time. It uses default timezone in PHP by default but it is possible to set a different one.
+This clock returns current time. It uses default timezone in PHP.
 
 ```php
 <?php
@@ -25,7 +25,20 @@ use DateTimeZone;
 use Konecnyjakub\Clock\SystemClock;
 
 (new SystemClock())->now();
-(new SystemClock(new DateTimeZone("Europe/Prague")))->now();
+```
+
+### Local clock
+
+This clock return current time in the specified time zone.
+
+```php
+<?php
+declare(strict_types=1);
+
+use DateTimeZone;
+use Konecnyjakub\Clock\LocalClock;
+
+(new LocalClock(new DateTimeZone("Europe/Prague")))->now();
 ```
 
 ### Frozen clock

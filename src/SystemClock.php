@@ -13,6 +13,12 @@ final readonly class SystemClock implements ClockInterface
 
     public function __construct(?DateTimeZone $timeZone = null)
     {
+        if ($timeZone !== null) {
+            trigger_error(
+                "Passing time zone to " . self::class . " is deprecated, use " . LocalClock::class . "instead",
+                E_USER_DEPRECATED
+            );
+        }
         $this->timeZone = $timeZone ?? new DateTimeZone(date_default_timezone_get());
     }
 
