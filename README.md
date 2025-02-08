@@ -29,7 +29,7 @@ use Konecnyjakub\Clock\SystemClock;
 
 ### Local clock
 
-This clock return current time in the specified time zone.
+This clock returns current time in the specified time zone.
 
 ```php
 <?php
