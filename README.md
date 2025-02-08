@@ -55,6 +55,23 @@ use Konecnyjakub\Clock\FrozenClock;
 (new FrozenClock(new DateTimeImmutable("1970-01-01")))->now();
 ```
 
+If you need different values on subsequent calls, you can use FrozenClocksCollection. It returns the values in order which they were passed in or throws an exception if all values were already returned (each value is returned only 1 time). Example:
+
+```php
+<?php
+declare(strict_types=1);
+
+use DateTimeImmutable;
+use Konecnyjakub\Clock\FrozenClocksCollection;
+
+$dt1 = new DateTimeImmutable("2025-01-01");
+$dt2 = new DateTimeImmutable("2025-02-01");
+$clock = new FrozenClocksCollection($dt1, $dt2);
+$clock->now(); // returns $dt1
+$clock->now(); // returns $dt2
+$clock->now(); // throws an exception
+```
+
 ### UTC clock
 
 This clock return current time in UTC.
