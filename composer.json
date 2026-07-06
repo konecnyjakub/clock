@@ -13,10 +13,6 @@
             "role": "Developer"
         }
     ],
-    "support": {
-        "sources": "https://gitlab.com/konecnyjakub/clock",
-        "issues": "https://gitlab.com/konecnyjakub/clock/-/issues"
-    },
     "require": {
         "php": ">=8.3.0",
         "psr/clock": "^1.0"
