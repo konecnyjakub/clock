@@ -17,8 +17,11 @@ final class FrozenClocksCollectionTest extends TestCase
         $clock = new FrozenClocksCollection($dt1, $dt2);
         $this->assertSame($dt1, $clock->now());
         $this->assertSame($dt2, $clock->now());
-        $this->assertThrowsException(static function () use ($clock) {
-            $clock->now();
-        }, \OutOfRangeException::class);
+        $this->assertThrowsException(
+            static function () use ($clock) {
+                $clock->now();
+            },
+            \OutOfRangeException::class
+        );
     }
 }
