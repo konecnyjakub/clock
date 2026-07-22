@@ -21,10 +21,11 @@ final class FrozenClocksCollection implements ClockInterface
 
     public function now(): DateTimeImmutable
     {
-        if (!array_key_exists($this->calledTimes, $this->clocks)) {
+        $index = $this->calledTimes;
+        if (!array_key_exists($index, $this->clocks)) {
             throw new OutOfRangeException();
         }
         $this->calledTimes++;
-        return $this->clocks[$this->calledTimes - 1];
+        return $this->clocks[$index];
     }
 }
