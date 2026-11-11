@@ -21,7 +21,6 @@ This clock returns current time. It uses default timezone in PHP.
 <?php
 declare(strict_types=1);
 
-use DateTimeZone;
 use Konecnyjakub\Clock\SystemClock;
 
 (new SystemClock())->now();
@@ -55,7 +54,7 @@ use Konecnyjakub\Clock\FrozenClock;
 (new FrozenClock(new DateTimeImmutable("1970-01-01")))->now();
 ```
 
-If you need different values on subsequent calls, you can use FrozenClocksCollection. It returns the values in order which they were passed in or throws an exception if all values were already returned (each value is returned only 1 time). Example:
+If you need different values on subsequent calls, you can use FrozenClocksCollection. It returns the values in order which they were passed in or throws OutOfRangeException if all values were already returned (each value is returned only 1 time). Example:
 
 ```php
 <?php
@@ -74,13 +73,12 @@ $clock->now(); // throws an exception
 
 ### UTC clock
 
-This clock return current time in UTC.
+This clock returns current time in UTC.
 
 ```php
 <?php
 declare(strict_types=1);
 
-use DateTimeImmutable;
 use Konecnyjakub\Clock\UTCClock;
 
 (new UTCClock())->now();
