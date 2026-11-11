@@ -19,6 +19,9 @@ final class FrozenClocksCollection implements ClockInterface
         $this->clocks = $clocks;
     }
 
+    /**
+     * @throw OutOfRangeException
+     */
     public function now(): DateTimeImmutable
     {
         $index = $this->calledTimes;
